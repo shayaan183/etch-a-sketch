@@ -7,10 +7,16 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
+    width: 560px;
+    height: 560px;
+    border: 1px solid #000000;
+    box-sizing: content-box;
 }
 
 .square {
-    border: 2px solid black;
+    border: none;
+}
+
+.hovered {
+    background-color: #000000;
 }
