@@ -1,7 +1,13 @@
+let currentMode = "color";
+
 const container = document.querySelector(".container");
-const resizeBtn = document.querySelector(".resize");
+const resizeBtn = document.querySelector("#resize");
+const colorBtn = document.querySelector("#color")
+const rainbowBtn = document.querySelector("#rainbow");
 
 resizeBtn.addEventListener('click', () => resizeGrid());
+colorBtn.addEventListener('click', () => {currentMode = "color"});
+rainbowBtn.addEventListener('click', () => {currentMode = "rainbow"});
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -16,7 +22,14 @@ function createGrid(size) {
         square.style.height = `${squareSize}px`;
 
         square.addEventListener('mouseenter', () => {
-            square.classList.add("hovered");
+            if (currentMode == "color") {
+                square.style.backgroundColor = "#000000";
+            } else if (currentMode == "rainbow") {
+                let r = Math.floor(Math.random() * 256);
+                let g = Math.floor(Math.random() * 256);
+                let b = Math.floor(Math.random() * 256);
+                square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            }
         });
 
         container.appendChild(square);
@@ -26,11 +39,15 @@ function createGrid(size) {
 function resizeGrid() {
     let newSize = prompt("Enter a number to resize the grid (4 - 100)");
 
-    if (newSize < 4 || newSize > 100) {
-        alert("You can't enter that!")
+    if (newSize == null) {
+        return;
+    }
+
+    newSize = parseInt(newSize);
+
+    if (newSize < 4 || newSize > 100  || isNaN(newSize)) {
+        alert("You can't enter that!");
     } else {
-        console.log(newSize);
-        newSize = parseInt(newSize);
         createGrid(newSize);
     }
 }

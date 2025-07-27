@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
 }
 
 .container {
@@ -15,8 +15,4 @@
 
 .square {
     border: none;
-}
-
-.hovered {
-    background-color: #000000;
 }
