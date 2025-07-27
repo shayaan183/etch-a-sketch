@@ -4,10 +4,12 @@ const container = document.querySelector(".container");
 const resizeBtn = document.querySelector("#resize");
 const colorBtn = document.querySelector("#color")
 const rainbowBtn = document.querySelector("#rainbow");
+const shadingBtn = document.querySelector("#shading");
 
 resizeBtn.addEventListener('click', () => resizeGrid());
 colorBtn.addEventListener('click', () => {currentMode = "color"});
 rainbowBtn.addEventListener('click', () => {currentMode = "rainbow"});
+shadingBtn.addEventListener('click', () => {currentMode = "shading"})
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -21,14 +23,25 @@ function createGrid(size) {
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
 
+        square.style.opacity = 0;
+
         square.addEventListener('mouseenter', () => {
             if (currentMode == "color") {
+                square.style.opacity = 1;
                 square.style.backgroundColor = "#000000";
             } else if (currentMode == "rainbow") {
+                square.style.opacity = 1;
                 let r = Math.floor(Math.random() * 256);
                 let g = Math.floor(Math.random() * 256);
                 let b = Math.floor(Math.random() * 256);
                 square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            } else if (currentMode == "shading") {
+                let currentOpacity = parseFloat(square.style.opacity);
+                if (currentOpacity < 1) {
+                    currentOpacity += 0.1;
+                    square.style.opacity = currentOpacity;
+                    square.style.backgroundColor = "#000000";
+                }
             }
         });
 
