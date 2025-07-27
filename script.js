@@ -5,11 +5,13 @@ const resizeBtn = document.querySelector("#resize");
 const colorBtn = document.querySelector("#color")
 const rainbowBtn = document.querySelector("#rainbow");
 const shadingBtn = document.querySelector("#shading");
+const eraserBtn = document.querySelector("#eraser");
 
 resizeBtn.addEventListener('click', () => resizeGrid());
 colorBtn.addEventListener('click', () => {currentMode = "color"});
 rainbowBtn.addEventListener('click', () => {currentMode = "rainbow"});
 shadingBtn.addEventListener('click', () => {currentMode = "shading"})
+eraserBtn.addEventListener('click', () => {currentMode = "eraser"});
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -42,7 +44,10 @@ function createGrid(size) {
                     square.style.opacity = currentOpacity;
                     square.style.backgroundColor = "#000000";
                 }
-            }
+            } else if (currentMode == "eraser") {{
+                square.style.opacity = 0;
+                square.style.backgroundColor = "#ffffff";
+            }}
         });
 
         container.appendChild(square);
