@@ -1,7 +1,15 @@
 * {
     box-sizing: border-box;
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 100px;
 }
 
 .container {
@@ -10,7 +18,30 @@
     width: 560px;
     height: 560px;
     border: 1px solid #000000;
-    box-sizing: content-box;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #0e0d0d;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.side-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .square {
