@@ -5,20 +5,24 @@ function updateCurrentColor(newColor) {
     currentColor = newColor;
 }
 
+function updateCurrentMode(newMode) {
+    currentMode = newMode;
+}
+
 const container = document.querySelector(".container");
 const resizeBtn = document.querySelector("#resize");
 const colorBtn = document.querySelector("#color");
-const colorPicker = document.querySelector("#color-picker")
+const colorPicker = document.querySelector("#color-picker");
 const rainbowBtn = document.querySelector("#rainbow");
 const shadingBtn = document.querySelector("#shading");
 const eraserBtn = document.querySelector("#eraser");
 
 resizeBtn.addEventListener('click', () => resizeGrid());
-colorBtn.addEventListener('click', () => {currentMode = "color"});
-colorPicker.addEventListener('change', (e) => updateCurrentColor(e.target.value));
-rainbowBtn.addEventListener('click', () => {currentMode = "rainbow"});
-shadingBtn.addEventListener('click', () => {currentMode = "shading"})
-eraserBtn.addEventListener('click', () => {currentMode = "eraser"});
+colorBtn.addEventListener('click', () => updateCurrentMode("color"));
+colorPicker.addEventListener('input', (e) => updateCurrentColor(e.target.value));
+rainbowBtn.addEventListener('click', () => updateCurrentMode("rainbow"));
+shadingBtn.addEventListener('click', () => updateCurrentMode("shading"));
+eraserBtn.addEventListener('click', () => updateCurrentMode("eraser"));
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -49,7 +53,7 @@ function createGrid(size) {
                 if (currentOpacity < 1) {
                     currentOpacity += 0.1;
                     square.style.opacity = currentOpacity;
-                    square.style.backgroundColor = currentColor;
+                    square.style.backgroundColor = "#000000";
                 }
             } else if (currentMode == "eraser") {{
                 square.style.opacity = 0;
