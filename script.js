@@ -1,14 +1,21 @@
 let currentMode = "color";
+let currentColor = "#000000";
+
+function updateCurrentColor(newColor) {
+    currentColor = newColor;
+}
 
 const container = document.querySelector(".container");
 const resizeBtn = document.querySelector("#resize");
-const colorBtn = document.querySelector("#color")
+const colorBtn = document.querySelector("#color");
+const colorPicker = document.querySelector("#color-picker")
 const rainbowBtn = document.querySelector("#rainbow");
 const shadingBtn = document.querySelector("#shading");
 const eraserBtn = document.querySelector("#eraser");
 
 resizeBtn.addEventListener('click', () => resizeGrid());
 colorBtn.addEventListener('click', () => {currentMode = "color"});
+colorPicker.addEventListener('change', (e) => updateCurrentColor(e.target.value));
 rainbowBtn.addEventListener('click', () => {currentMode = "rainbow"});
 shadingBtn.addEventListener('click', () => {currentMode = "shading"})
 eraserBtn.addEventListener('click', () => {currentMode = "eraser"});
@@ -30,7 +37,7 @@ function createGrid(size) {
         square.addEventListener('mouseenter', () => {
             if (currentMode == "color") {
                 square.style.opacity = 1;
-                square.style.backgroundColor = "#000000";
+                square.style.backgroundColor = currentColor;
             } else if (currentMode == "rainbow") {
                 square.style.opacity = 1;
                 let r = Math.floor(Math.random() * 256);
@@ -42,7 +49,7 @@ function createGrid(size) {
                 if (currentOpacity < 1) {
                     currentOpacity += 0.1;
                     square.style.opacity = currentOpacity;
-                    square.style.backgroundColor = "#000000";
+                    square.style.backgroundColor = currentColor;
                 }
             } else if (currentMode == "eraser") {{
                 square.style.opacity = 0;
