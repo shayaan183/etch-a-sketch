@@ -7,6 +7,7 @@ function updateCurrentColor(newColor) {
 
 function updateCurrentMode(newMode) {
     currentMode = newMode;
+    changeActiveButton(newMode);
 }
 
 const container = document.querySelector(".container");
@@ -79,6 +80,23 @@ function resizeGrid() {
     } else {
         createGrid(newSize);
     }
+}
+
+function changeActiveButton(mode) {
+    colorBtn.classList.remove("active-btn");
+    rainbowBtn.classList.remove("active-btn");
+    shadingBtn.classList.remove("active-btn");
+    eraserBtn.classList.remove("active-btn");
+
+    if (mode == "color") {
+        colorBtn.classList.add("active-btn");
+    } else if (mode == "rainbow") {
+        rainbowBtn.classList.add("active-btn");
+    } else if (mode == "shading") {
+        shadingBtn.classList.add("active-btn");
+    } else if (mode == "eraser") {{
+        eraserBtn.classList.add("active-btn");
+    }}
 }
 
 createGrid(16);
