@@ -15,17 +15,17 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 560px;
-    height: 560px;
-    border: 1px solid #000000;
+    width: 600px;
+    height: 600px;
+    outline: 1px solid #000000;
 }
 
 button {
     padding: 10px 15px;
     font-size: 16px;
     border-radius: 10px;
-    background-color: #0e0d0d;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -38,7 +38,7 @@ button:active {
     transform: scale(0.95);
 }
 
-.side-buttons {
+.settings {
     display: flex;
     flex-direction: column;
     gap: 50px;
