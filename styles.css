@@ -11,7 +11,20 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
-    gap: 50px;
+    gap: 10px;
+    background: #182848;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    margin: 25px;
+}
+
+#title {
+    font-family: "Press Start 2P", serif;
+    font-size: 25px;
 }
 
 main {
@@ -19,14 +32,16 @@ main {
     align-items: center;
     justify-content: center;
     gap: 100px;
-}
+}   
 
 .container {
     display: flex;
     flex-wrap: wrap;
     width: 600px;
     height: 600px;
-    outline: 1px solid #000000;
+    outline: 5px solid #000000;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px #000000;
 }
 
 button {
@@ -37,10 +52,12 @@ button {
     color: #000000;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 150px;
 }
 
 button:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 15px #000000;
 }
 
 button:active {
@@ -50,12 +67,17 @@ button:active {
 .active-btn {
     background-color: #000000;
     color: #ffffff;
+    box-shadow: 0 4px 15px #000000;
 }
 
 .settings {
     display: flex;
     flex-direction: column;
     gap: 35px;
+    background-color: #ffffff;
+    padding: 40px;
+    outline: 5px solid #000000;
+    border-radius: 20px;
 }
 
 .slider-settings {
@@ -73,7 +95,6 @@ input[type="color"] {
     border-radius: 50%;
     background: none;
     cursor: pointer;
-
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -91,6 +112,23 @@ input[type="range"] {
     cursor: pointer;
 }
 
+#output {
+    color: #000000;
+    font-size: 14px;
+}
+
 .square {
     border: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin: 25px;
+    font-size: 18px;
 }
