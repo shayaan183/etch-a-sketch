@@ -25,6 +25,7 @@ header {
 #title {
     font-family: "Press Start 2P", serif;
     font-size: 25px;
+    text-shadow: 0 0 50px #ffffff;
 }
 
 main {
@@ -73,11 +74,12 @@ button:active {
 .settings {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 30px;
     background-color: #ffffff;
     padding: 40px;
     outline: 5px solid #000000;
     border-radius: 20px;
+    box-shadow: 0 0 50px #000000;
 }
 
 .slider-settings {
@@ -131,4 +133,5 @@ footer {
     text-align: center;
     margin: 25px;
     font-size: 18px;
+    text-shadow: 0 0 50px #ffffff;
 }

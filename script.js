@@ -1,5 +1,6 @@
 let currentMode = "color";
 let currentColor = "#000000";
+let currentSize = 16;
 
 function updateCurrentColor(newColor) {
     currentColor = newColor;
@@ -18,6 +19,7 @@ const shadingBtn = document.querySelector("#shading");
 const eraserBtn = document.querySelector("#eraser");
 const resizeSlider = document.querySelector("#resize-slider");
 const resizeOutput = document.querySelector("#output");
+const clearBtn = document.querySelector("#clear");
 
 colorBtn.addEventListener('click', () => updateCurrentMode("color"));
 colorPicker.addEventListener('input', (e) => updateCurrentColor(e.target.value));
@@ -26,6 +28,7 @@ shadingBtn.addEventListener('click', () => updateCurrentMode("shading"));
 eraserBtn.addEventListener('click', () => updateCurrentMode("eraser"));
 resizeSlider.addEventListener('change', (e) => resizeGrid(e.target.value));
 resizeSlider.addEventListener('input', (e) => resizeOutput.innerHTML = `Size: ${e.target.value} &times; ${e.target.value}`);
+clearBtn.addEventListener('click', () => clearBoard());
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -73,9 +76,8 @@ function setPaintMode(square) {
 }
 
 function resizeGrid(e) {
-    let newSize = e;
-    newSize = parseInt(newSize);
-    createGrid(newSize);
+    currentSize = parseInt(e);
+    createGrid(currentSize);
 }
 
 function changeActiveButton(mode) {
@@ -95,5 +97,9 @@ function changeActiveButton(mode) {
     }}
 }
 
-createGrid(16);
+function clearBoard() {
+    createGrid(currentSize);
+}
+
+createGrid(currentSize);
 changeActiveButton("color");
