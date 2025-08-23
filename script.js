@@ -11,19 +11,21 @@ function updateCurrentMode(newMode) {
 }
 
 const container = document.querySelector(".container");
-const resizeBtn = document.querySelector("#resize");
 const colorBtn = document.querySelector("#color");
 const colorPicker = document.querySelector("#color-picker");
 const rainbowBtn = document.querySelector("#rainbow");
 const shadingBtn = document.querySelector("#shading");
 const eraserBtn = document.querySelector("#eraser");
+const resizeSlider = document.querySelector("#resize-slider");
+const resizeOutput = document.querySelector("#output");
 
-resizeBtn.addEventListener('click', () => resizeGrid());
 colorBtn.addEventListener('click', () => updateCurrentMode("color"));
 colorPicker.addEventListener('input', (e) => updateCurrentColor(e.target.value));
 rainbowBtn.addEventListener('click', () => updateCurrentMode("rainbow"));
 shadingBtn.addEventListener('click', () => updateCurrentMode("shading"));
 eraserBtn.addEventListener('click', () => updateCurrentMode("eraser"));
+resizeSlider.addEventListener('change', (e) => resizeGrid(e.target.value));
+resizeSlider.addEventListener('input', (e) => resizeOutput.innerHTML = `Size: ${e.target.value} &times; ${e.target.value}`);
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -66,20 +68,11 @@ function createGrid(size) {
     }
 }
 
-function resizeGrid() {
-    let newSize = prompt("Enter a number to resize the grid (4 - 100)");
 
-    if (newSize == null) {
-        return;
-    }
-
+function resizeGrid(e) {
+    let newSize = e;
     newSize = parseInt(newSize);
-
-    if (newSize < 4 || newSize > 100  || isNaN(newSize)) {
-        alert("You can't enter that!");
-    } else {
-        createGrid(newSize);
-    }
+    createGrid(newSize);
 }
 
 function changeActiveButton(mode) {
@@ -100,3 +93,4 @@ function changeActiveButton(mode) {
 }
 
 createGrid(16);
+changeActiveButton("color");
