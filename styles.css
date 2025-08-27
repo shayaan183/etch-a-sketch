@@ -33,55 +33,6 @@ main {
     align-items: center;
     justify-content: center;
     gap: 100px;
-}   
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 600px;
-    height: 600px;
-    outline: 5px solid #000000;
-    background-color: #ffffff;
-    box-shadow: 0 0 50px #000000;
-    user-select: none;
-}
-
-.buttons-group {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    color: #000000;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 150px;
-}
-
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px #000000;
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-.active-btn {
-    background-color: #000000;
-    color: #ffffff;
-    box-shadow: 0 4px 15px #000000;
 }
 
 .settings {
@@ -130,6 +81,55 @@ input[type="range"] {
 #output {
     color: #000000;
     font-size: 14px;
+}
+
+.buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 150px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px #000000;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.active-btn {
+    background-color: #000000;
+    color: #ffffff;
+    box-shadow: 0 4px 15px #000000;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    outline: 5px solid #000000;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px #000000;
+    user-select: none;
 }
 
 .square {
