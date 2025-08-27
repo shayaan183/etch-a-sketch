@@ -123,15 +123,15 @@ input[type="range"] {
     border: none;
 }
 
-a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-}
-
 footer {
     text-align: center;
     margin: 25px;
     font-size: 18px;
     text-shadow: 0 0 50px #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
 }
