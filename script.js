@@ -92,12 +92,12 @@ function setPaintMode(square) {
         if (currentOpacity < 1) {
             currentOpacity += 0.1;
             square.style.opacity = currentOpacity;
-            square.style.backgroundColor = "#000000";
+            square.style.backgroundColor = currentColor;
         }
-    } else if (currentMode == "eraser") {{
+    } else if (currentMode == "eraser") {
         square.style.opacity = 0;
         square.style.backgroundColor = "#ffffff";
-    }}
+    }
 }
 
 function resizeGrid(e) {
@@ -117,9 +117,9 @@ function changeActiveButton(mode) {
         rainbowBtn.classList.add("active-btn");
     } else if (mode == "shading") {
         shadingBtn.classList.add("active-btn");
-    } else if (mode == "eraser") {{
+    } else if (mode == "eraser") {
         eraserBtn.classList.add("active-btn");
-    }}
+    }
 }
 
 function clearBoard() {
