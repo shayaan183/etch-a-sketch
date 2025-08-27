@@ -1,6 +1,8 @@
 let currentMode = "color";
 let currentColor = "#000000";
 let currentSize = 16;
+let currentDrawMode = "hover";
+let isMouseDown = false;
 
 function updateCurrentColor(newColor) {
     currentColor = newColor;
@@ -9,6 +11,16 @@ function updateCurrentColor(newColor) {
 function updateCurrentMode(newMode) {
     currentMode = newMode;
     changeActiveButton(newMode);
+}
+
+function updateCurrentDrawMode() {
+    if (currentDrawMode == "hover") {
+        currentDrawMode = "drag";
+        toggleBtn.textContent = "Mode: Drag";
+    } else if (currentDrawMode == "drag") {
+        currentDrawMode = "hover";
+        toggleBtn.textContent = "Mode: Hover";
+    }
 }
 
 const container = document.querySelector(".container");
@@ -20,6 +32,10 @@ const eraserBtn = document.querySelector("#eraser");
 const resizeSlider = document.querySelector("#resize-slider");
 const resizeOutput = document.querySelector("#output");
 const clearBtn = document.querySelector("#clear");
+const toggleBtn = document.querySelector("#toggle-mode");
+
+container.addEventListener('mousedown', () => isMouseDown = true);
+container.addEventListener('mouseup', () => isMouseDown = false);
 
 colorBtn.addEventListener('click', () => updateCurrentMode("color"));
 colorPicker.addEventListener('input', (e) => updateCurrentColor(e.target.value));
@@ -29,6 +45,7 @@ eraserBtn.addEventListener('click', () => updateCurrentMode("eraser"));
 resizeSlider.addEventListener('change', (e) => resizeGrid(e.target.value));
 resizeSlider.addEventListener('input', (e) => resizeOutput.innerHTML = `Size: ${e.target.value} &times; ${e.target.value}`);
 clearBtn.addEventListener('click', () => clearBoard());
+toggleBtn.addEventListener('click', () => updateCurrentDrawMode());
 
 function createGrid(size) {
     console.log(`Grid size: ${size}`)
@@ -44,8 +61,16 @@ function createGrid(size) {
 
         square.style.opacity = 0;
 
-        square.addEventListener('mouseenter', () => {
-            setPaintMode(square);
+        square.addEventListener('mouseover', () => {
+            if (currentDrawMode == "hover" || currentDrawMode == "drag" && isMouseDown) {
+                setPaintMode(square);
+            }
+        });
+
+        square.addEventListener('mousedown', () => {
+            if (currentDrawMode == "drag") {
+                setPaintMode(square);
+            }
         });
 
         container.appendChild(square);

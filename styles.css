@@ -43,6 +43,19 @@ main {
     outline: 5px solid #000000;
     background-color: #ffffff;
     box-shadow: 0 0 50px #000000;
+    user-select: none;
+}
+
+.buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 button {
@@ -121,6 +134,7 @@ input[type="range"] {
 
 .square {
     border: none;
+    user-select: none;
 }
 
 footer {
